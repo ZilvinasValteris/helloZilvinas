@@ -4,5 +4,5 @@ package lambdaexpressions;
 
 public interface Executable {
 
-    int execute(int a);
+    int execute(int a, int b);
 }

@@ -8,27 +8,27 @@ public class App {
     public static void main(String[] args) {
         Runner runner = new Runner();
         runner.run(new Executable(){
-            public int execute(int a){
+            public int execute(int a, int b){
                 System.out.println("Executed function of an anonymous class.");
-                return 7 + a;
+                return 7 + a + b;
             }
         });
 
         System.out.println("\nLambda expression used:\n");
 
-        runner.run((int a) -> {
+        runner.run((int a, int b) -> {
             System.out.println("Executed function of an anonymous class.");
             System.out.println("Second line of the function...");
-            return 9 + a;
+            return 9 + a + b;
         });
 
-        runner.run((int a) -> {
-            return 8 + a;
+        runner.run((int a, int b) -> {
+            return 8 + a + b;
         });
 
         // Exactly equivalent to the above
         // You don't need squiggly brackets or "return" for a one line expression
-        runner.run((int a) -> 7 + a);
+        runner.run((a, b) -> 7 + a + b);
 
         // Normally you can miss out the type of the param since int's known/inferred from the interface
         // However, Java will get confused if you have two interfaces that have a method of the same name
